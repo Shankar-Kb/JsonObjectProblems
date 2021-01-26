@@ -155,7 +155,7 @@ removeProperty(obj, 'name');
 
 //23. Write a function called “addProperty”.
 var obj = {
-    mykey: 'value';
+    mykey: 'value'
    };
 function addProperty(obj, key){
     obj[key] = true;
