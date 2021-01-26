@@ -1,3 +1,137 @@
+//33. Calculate the sum of numbers received in a comma delimited string
+function sumCSV(str){
+  var arr = str.split(', ');
+  arr = arr.map( elem => +elem);
+  return arr.reduce( (total, current) => total+current );
+}
+console.log(sumCSV('1.5, 2.3, 3.1, 4, 5.5, 6, 7, 8, 9, 10.9'));
+
+
+//32. Create a function that will merge two arrays and return the result as a new array
+var arr1 = [1, 2, 3];
+var arr2 = [4, 5, 6];
+
+function mergeArrays(arr1, arr2){
+ var result = arr1.concat(arr2);
+ //var result = [...arr1, ...arr2];
+ return result;
+}
+var arr = mergeArrays(arr1, arr2);
+console.log(arr);
+
+
+//31. Reverse a string
+function reverseString(str){
+    var strRev = [];
+  for(var i = str.length-1; i >= 0; i--){
+      strRev.push(str[i]);
+  }
+  return strRev.join('');
+}
+var str = reverseString("JavaScript");
+console.log(str);
+
+
+//30. Create a function that will return in an array the first “nPrimes” prime numbers greater than a particular number “startAt”.
+function getPrimes(nPrimes, startAt){
+    // your code here
+    var primeArr = [];
+    var n = startAt+1;
+    var count = 1;
+
+    
+    while(count < 10)
+    {
+    if (isPrime(n)){
+        primeArr.push(n);
+        count++;
+    }
+    n++;
+    }
+    return primeArr;
+}
+
+function isPrime(num)
+{
+    var res = true;
+    if (num<2){
+      res =  false;
+    }
+    for (var i = 2; i<num; i++){
+      if (num%i===0){
+        res = false;
+      }
+    }
+    return res;
+}
+console.log(getPrimes(10, 100));
+
+
+//29. Function prints the first nPrimes numbers
+// Function prints the first nPrimes numbers
+function printPrimes(nPrimes){
+ var n = 0;
+ var i = 2;
+ 
+ while(n < nPrimes)
+ {
+ if (isPrime(i))
+ {
+ console.log(n+1,' → ', i);
+ n++;
+ }
+ 
+ i++;
+ }
+}// Returns true if a number is prime
+function isPrime(num)
+{
+    var res = true;
+    if (num<2){
+      res =  false;
+    }
+    for (var i = 2; i<num; i++){
+      if (num%i===0){
+        res = false;
+      }
+    }
+    return res;
+}
+printPrimes(100);
+
+
+//28. Find the maximum number in an array of numbers
+function findMax(arr)
+{
+return Math.max(...arr);
+}
+var arr = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+var max = findMax(arr);
+console.log('Max: ', max);
+
+
+//27. Write a function `powersOfTwo` which will return list of all powers of 2 from 0 to n (where n is an exponent).
+function powersOfTwo(n){
+    var res = [];
+
+    for(var i=0; i<=n; i++){
+        res.push(Math.pow(2, i));
+    }
+    return res;
+}
+console.log(powersOfTwo(2));
+
+
+//26. Create a function that receives an array of numbers and returns an array containing only the positive numbers
+var arr = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
+function getPositives(arr)
+{
+ return arr.filter( elem => elem > 0);
+}
+var arr2 = getPositives(arr);
+console.log(arr2);
+
+
 //25. Return an array, where the first element is the count of positives numbers and the second element is sum of negative numbers.
 var arr = [-5, 10, -3, 12, -9, 5, 90, 0, 1];
 function countPositivesSumNegatives(arr) {
